@@ -1,0 +1,141 @@
+Program 1:
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Digital Clock!</h1>
+    <h2 id="time"></h2>
+
+    <script>
+        function display() {
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+
+            document.getElementById("time").innerHTML =
+                h + ":" + m + ":" + s;
+        }
+
+        setInterval(display, 1000);
+    </script>
+</body>
+</html>
+
+program 2:
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Dynamic Background!</h1>
+
+    <script>
+        function setBackgroundColor() {
+            var red = Math.floor(Math.random() * 255);
+            var blue = Math.floor(Math.random() * 255);
+            var green = Math.floor(Math.random() * 255);
+
+            var color = "rgb(" + red + "," + green + "," + blue + ")";
+
+            document.getElementsByTagName("body")[0].style.backgroundColor = color;
+        }
+
+        setInterval(setBackgroundColor, 30000);
+    </script>
+</body>
+</html>
+
+
+Program 3:
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Change Font Size!</h1>
+
+    <p id="para1" onmouseover="incSize()" onmouseout="decSize()">
+        Move cursor over me to zoom in...
+    </p>
+
+    <script>
+        function incSize() {
+            document.getElementById("para1").style.fontSize = "28px";
+        }
+
+        function decSize() {
+            document.getElementById("para1").style.fontSize = "16px";
+        }
+    </script>
+</body>
+</html>
+
+Program 4:
+<!DOCTYPE html>
+<html>
+<body onload="init()">
+    <h1>Moving Car</h1>
+
+    <img id="img"
+         src="https://www.w3schools.com/html/car.png"
+         width="100"
+         style="position:relative; left:0px;">
+
+    <br><br>
+
+    <button onclick="moveRight()">Move</button>
+    <button onclick="stop()">Stop</button>
+
+    <script>
+        var imgObj;
+        var animate;
+
+        function init() {
+            imgObj = document.getElementById("img");
+            imgObj.style.position = "relative";
+            imgObj.style.left = "0px";
+        }
+
+        function moveRight() {
+            imgObj.style.left =
+                parseInt(imgObj.style.left) + 1 + "px";
+
+            animate = setTimeout(moveRight, 10);
+        }
+
+        function stop() {
+            clearTimeout(animate);
+        }
+    </script>
+</body>
+</html>
+
+Program 5:
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Student Details</h1>
+
+    <div id="result"></div>
+
+    <script>
+        var student = [
+            { name: "John", r_num: "123", dob: 1995 },
+            { name: "Joseph", r_num: "456", dob: 1998 },
+            { name: "David", r_num: "789", dob: 2003 }
+        ];
+
+        var output = "";
+
+        for (var i = 0; i < student.length; i++) {
+            output += "<p>" + student[i].name +
+                "'s Register Number is " + student[i].r_num + "</p>";
+
+            if (student[i].dob < 2000) {
+                output += "Born before 2000<br><br>";
+            }
+            else {
+                output += "Born after 2000<br><br>";
+            }
+        }
+
+        document.getElementById("result").innerHTML = output;
+    </script>
+</body>
+</html>
